@@ -36,11 +36,9 @@ public class SeatController {
         }
     }
 
-
-
     @GetMapping("/get-seats")
     @Operation(summary = "Menampilkan film yang sedang rilis")
-    public ResponseEntity searchShowingFilm(@RequestParam("number") Integer number,
+    public ResponseEntity getSeat(@RequestParam("number") Integer number,
                                             @RequestParam("studio") String studio,
                                             @RequestParam("studioName") String studioName) {
         try {
@@ -53,7 +51,4 @@ public class SeatController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
-
-
-
 }
