@@ -16,7 +16,6 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Seats {
     @EmbeddedId
     private ChairNumber chairNumber;

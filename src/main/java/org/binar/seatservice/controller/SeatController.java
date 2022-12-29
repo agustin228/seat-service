@@ -23,7 +23,7 @@ public class SeatController {
     SeatServiceImpl seatService;
 
     @PostMapping("/post-seats")
-    @Operation(summary = "Menambahkan nama film baru")
+    @Operation(summary = "Menambahkan kursi baru")
     public ResponseEntity insertSeat(@RequestParam("number") Integer number,
                                      @RequestParam("studio") String studio,
                                      @RequestParam("studioName") String studioName) {
@@ -37,14 +37,14 @@ public class SeatController {
     }
 
     @GetMapping("/get-seats")
-    @Operation(summary = "Menampilkan film yang sedang rilis")
+    @Operation(summary = "Menampilkan kursi yang tersedia")
     public ResponseEntity getSeat(@RequestParam("number") Integer number,
                                             @RequestParam("studio") String studio,
                                             @RequestParam("studioName") String studioName) {
         try {
             List<Seats> seatsList = seatService.getSeat(number, studio, studioName);
             Map<String, List<Seats>> resp = new HashMap<>();
-            resp.put("Film yang sedang rilis", seatsList);
+            resp.put("Kursi yang tersedia", seatsList);
             return new ResponseEntity(resp, HttpStatus.OK);
         } catch (Exception e) {
             log.error("ERROR has been found! because {}", e.getMessage());

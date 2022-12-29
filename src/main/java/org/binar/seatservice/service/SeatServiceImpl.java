@@ -11,13 +11,13 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class SeatServiceImpl implements SeatService{
+public class SeatServiceImpl implements SeatService {
 
     @Autowired
     SeatsRepository seatsRepository;
 
-
-    public void insertSeat(Integer number, String studio, String studioName){
+    @Override
+    public void insertSeat(Integer number, String studio, String studioName) {
 
         try {
             seatsRepository.addChairNumber(number, studio, studioName);
@@ -26,7 +26,8 @@ public class SeatServiceImpl implements SeatService{
         }
     }
 
-    public List<Seats> getSeat(Integer number, String studio, String studioName){
+    @Override
+    public List<Seats> getSeat(Integer number, String studio, String studioName) {
         List<Seats> seatsList = new ArrayList<>();
         try {
             seatsList = seatsRepository.getChairNumber(number, studio, studioName);
